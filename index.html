@@ -6,62 +6,15 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <script>
-            let options = ["rock", "paper", "scissor"];
-            function computerPlay(){
-                let choice = Math.floor(Math.random()*3);
-                return options[choice];
-            }
-
-            function playRound(playerSelection, computerSelection){
-                playerSelection = playerSelection.toLowerCase();
-                if(playerSelection == computerSelection){
-                    return `Both players drew ${playerSelection}, it's a draw!`;
-                }
-                if(playerSelection == options[0]){
-                    if(computerSelection == options[1]){
-                        return "You loose! Paper beats Rock";
-                    }else{
-                        return "You win! Rock beats Scissors";
-                    }
-                }else if(playerSelection == options[1]){
-                    if(computerSelection == options[0]){
-                        return "You win! Paper beats Rock";
-                    }else{
-                        return "You loose! Scissor beats Paper";
-                    }
-                }else{
-                    if(computerSelection == options[0]){
-                        return "You loose! Rock beats Scissor";
-                    }else{
-                        return "You win! Scissor beats Paper";
-                    }
-                }
-            }
-
-            function game(){
-                let playerWins=0;
-                let computerWins=0;
-                for(let i=0; i<5; i++){
-                    let player = window.prompt("Please enter your choice: ");
-                    let computer = computerPlay();
-                    let result = playRound(player, computer);
-                    console.log(result);
-                    if(result.includes("win")){
-                        playerWins++;
-                    }else if(result.includes("loose")){
-                        computerWins++;
-                    }else{
-                        playerWins++;
-                        computerWins++;
-                    }
-                }
-                if(playerWins>computerWins)console.log("You won the game!");
-                else if(playerWins < computerWins)console.log("You lost the game!");
-                else console.log("It's a draw!")
-            }
-
-            game();
-        </script>
+        <h4 id="player">Player: 0</h4>
+        <h4 id="computer">Computer: 0</h4>
+        <div class="playButtons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <button id="reset">Reset</button>
+        <h5 id="status"></h5>
+        <script src="scripts/main.js"></script> 
     </body>
 </html>
